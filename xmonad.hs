@@ -18,6 +18,7 @@ import System.IO
 import System.Directory
 import System.Exit
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.NoBorders
 import Graphics.X11.ExtraTypes.XF86 (xF86XK_AudioNext,
     xF86XK_AudioMute,
     xF86XK_AudioPlay,
@@ -240,7 +241,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full ||| eq_tiled
+myLayout = smartBorders $ tiled ||| Mirror tiled ||| Full ||| eq_tiled
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled    = Tall nmaster delta ratio
