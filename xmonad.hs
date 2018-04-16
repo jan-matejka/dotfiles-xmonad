@@ -327,7 +327,7 @@ main = do
     home_dir <- getHomeDirectory
     xmproc <- spawnPipe ("/usr/bin/xmobar " ++ home_dir ++ "/.xmobarrc")
     xmproc <- spawnPipe ("/usr/bin/xmobar " ++ home_dir ++ "/.xmobarrc2")
-    xmonad defaults
+    xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
