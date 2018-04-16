@@ -29,7 +29,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal	=	"urxvt"
+myTerminal  = "urxvt"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -89,10 +89,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-	, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-	-- The 'sleep' before running the 'scrot -s' command is to leave time for keys to be released before scrot -s tries to grab the keyboard.
-	-- http://www.haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration
-	, ((0, xK_Print), spawn "scrot")
+  , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
+  -- The 'sleep' before running the 'scrot -s' command is to leave time for keys to be released before scrot -s tries to grab the keyboard.
+  -- http://www.haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration
+  , ((0, xK_Print), spawn "scrot")
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
@@ -102,14 +102,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
     , ((0, xF86XK_AudioPrev), spawn "mpc prev")
 
-	--	launch clean terminal
-	, ((mod1Mask .|. shiftMask, xK_Return), spawn myTerminal)
+  --  launch clean terminal
+  , ((mod1Mask .|. shiftMask, xK_Return), spawn myTerminal)
 
     , ((mod1Mask,           xK_F1   ), spawn "urxvt -e tmux new -ADs primary")
     , ((mod1Mask,           xK_F12  ), spawn "urxvt -e su -c 'tmux new -ADs primary'")
 
-	-- toggle keymap
-	, ((shiftMask, xK_F1    ), spawn "yt km t")
+  -- toggle keymap
+  , ((shiftMask, xK_F1    ), spawn "yt km t")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -190,10 +190,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
-	{- [((m .|. modm, k), windows $ f i)
+  {- [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip myWorkspaces [xK_F1..xK_F12]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-	++ -}
+  ++ -}
 
     --
     -- mod-{q,w,e}, Switch to physical/Xinerama screens 1, 2, or 3
@@ -273,15 +273,15 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| eq_tiled
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"          --> doFloat
-    , className =? "Gimp"             --> doFloat
-    , resource  =? "desktop_window"   --> doIgnore
-    , resource  =? "kdesktop"         --> doIgnore
-	, className =? "Hotot"            --> doShift "18"
-	, className =? "Claws-mail"       --> doShift "19"
-	, className =? "Pidgin"           --> doShift "20"
-	, className =? "Chromium-browser" --> doShift "21"
-	]
+  [ className =? "MPlayer"          --> doFloat
+  , className =? "Gimp"             --> doFloat
+  , resource  =? "desktop_window"   --> doIgnore
+  , resource  =? "kdesktop"         --> doIgnore
+  , className =? "Hotot"            --> doShift "18"
+  , className =? "Claws-mail"       --> doShift "19"
+  , className =? "Pidgin"           --> doShift "20"
+  , className =? "Chromium-browser" --> doShift "21"
+  ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -302,11 +302,11 @@ myEventHook = mempty
 --
 myLogHook = return ()
 --do
---	xmproc <- spawnPipe "/usr/bin/xmobar /home/yac/.xmobarrc"
---	dynamicLogWithPP xmobarPP
---				{ ppOutput = hPutStrLn xmproc,
---				 ppTitle = xmobarColor "green" "" . shorten 50
---				}
+--  xmproc <- spawnPipe "/usr/bin/xmobar /home/yac/.xmobarrc"
+--  dynamicLogWithPP xmobarPP
+--        { ppOutput = hPutStrLn xmproc,
+--         ppTitle = xmobarColor "green" "" . shorten 50
+--        }
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -351,7 +351,7 @@ defaults = defaultConfig {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-		layoutHook         = avoidStruts $ myLayout,
+        layoutHook         = avoidStruts $ myLayout,
         manageHook         = manageDocks <+> myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
