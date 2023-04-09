@@ -201,7 +201,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{q,w,e}, Move focus to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_q, xK_w, xK_e] [0..]
+        -- | (key, sc) <- zip [xK_q, xK_w, xK_e] [0..] -- 3 screen setup
+        | (key, sc) <- zip [xK_w, xK_e] [0..] -- 2 screen setup
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
