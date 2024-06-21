@@ -111,7 +111,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((mod1Mask,           xK_F12  ), spawn "urxvt -e su -l -c 'tmux new -ADs primary'")
 
   -- toggle keymap
-  , ((shiftMask, xK_F1    ), spawn "yt keymap toggle")
+  , ((shiftMask, xK_F1    ), spawn "jm keymap toggle")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -158,7 +158,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Expand the master area
     , ((modm,               xK_l     ), sendMessage Expand)
 
-    , ((modm .|. shiftMask, xK_l     ), spawn "yt xlock")
+    , ((modm .|. shiftMask, xK_l     ), spawn "jm xlock")
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
