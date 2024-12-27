@@ -116,8 +116,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
-    , ((modm , xK_o     ), spawn "tmux-picker --no-attached")
-    , ((modm .|. shiftMask, xK_o     ), spawn "tmux-picker")
+    , ((modm , xK_o     ), spawn "jm tmux-dmenu --no-attached")
+    , ((modm .|. shiftMask, xK_o     ), spawn "jm tmux-dmenu")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
