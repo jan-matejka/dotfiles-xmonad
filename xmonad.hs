@@ -188,7 +188,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) (
-          [xK_0 .. xK_9] ++ [xK_minus, xK_equal])
+          [xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
