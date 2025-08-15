@@ -187,7 +187,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[0..9] and F1..F12, Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) ([xK_0 .. xK_9] ++ [xK_F1..xK_F12])
+        | (i, k) <- zip (XMonad.workspaces conf) (
+          [xK_0 .. xK_9] ++ [xK_minus, xK_equal])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
