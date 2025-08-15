@@ -106,7 +106,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   --  launch clean terminal
   , ((mod1Mask .|. shiftMask, xK_Return), spawn myTerminal)
 
-    , ((mod1Mask,           xK_1   ), spawn "urxvt -e tmux new -ADs primary") , ((mod1Mask,           xK_F2   ), spawn "urxvt -e tmux new -ADs wip")
+    , ((mod1Mask .|. shiftMask,           xK_1   ), spawn "urxvt -e tmux new -ADs primary") , ((mod1Mask,           xK_F2   ), spawn "urxvt -e tmux new -ADs wip")
     , ((mod1Mask,           xK_equal  ), spawn "urxvt -e su -l -c 'tmux new -ADs primary'")
 
   -- toggle keymap
