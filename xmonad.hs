@@ -72,7 +72,7 @@ myNumlockMask   = mod2Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = map show [0..21]
+myWorkspaces    = map show [0..12]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -106,9 +106,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   --  launch clean terminal
   , ((mod1Mask .|. shiftMask, xK_Return), spawn myTerminal)
 
-    , ((mod1Mask,           xK_F1   ), spawn "urxvt -e tmux new -ADs primary")
-    , ((mod1Mask,           xK_F2   ), spawn "urxvt -e tmux new -ADs wip")
-    , ((mod1Mask,           xK_F12  ), spawn "urxvt -e su -l -c 'tmux new -ADs primary'")
+    , ((mod1Mask,           xK_1   ), spawn "urxvt -e tmux new -ADs primary") , ((mod1Mask,           xK_F2   ), spawn "urxvt -e tmux new -ADs wip")
+    , ((mod1Mask,           xK_equal  ), spawn "urxvt -e su -l -c 'tmux new -ADs primary'")
 
   -- toggle keymap
   , ((shiftMask, xK_F1    ), spawn "jm keymap toggle")
@@ -188,7 +187,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[0..9] and F1..F12, Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) ([xK_0 .. xK_9] ++ [xK_F1..xK_F12])
+        | (i, k) <- zip (XMonad.workspaces conf) (
+          [xK_0 .. xK_9] ++ [xK_minus, xK_equal])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
